@@ -15,4 +15,8 @@ class BooksController extends Controller
     {
         return "My name is" . " " . $name;
     }
+    public function view($name)
+    {
+        return view('test')->with('name', $name);
+    }
 }

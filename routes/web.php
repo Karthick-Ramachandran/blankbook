@@ -14,3 +14,7 @@ Route::get('/welcome', 'BooksController@index');
 Route::get('/welcome/{name}', [
     'uses' => 'BooksController@greet'
 ]);
+
+Route::get('/view/{name}', [
+    'uses' => 'BooksController@view'
+]);
