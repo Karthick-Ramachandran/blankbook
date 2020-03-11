@@ -8,17 +8,9 @@ Route::get('/', function () {
 });
 
 // closure
-Route::get('/welcome', function () {
-    return 'Hello world';
-});
+Route::get('/welcome', 'BooksController@index');
 
-// dynamic routes
-Route::get('/welcome/{name}', function ($name) {
-    return 'My name is' . " " . $name;
-});
 
-Route::get('/name', 'BookController@create');
-
-Route::get('/', [
-    'use' => 'Controller@index'
+Route::get('/welcome/{name}', [
+    'uses' => 'BooksController@greet'
 ]);
