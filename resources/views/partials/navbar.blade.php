@@ -2,7 +2,7 @@
     <div class="container">
         <a href="/books" class="navbar-brand">BlankBook</a>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-link">
+            <li class="nav-item active">
                 <a href="#" class="nav-link">Created by John Doe</a>
             </li>
         </ul>
