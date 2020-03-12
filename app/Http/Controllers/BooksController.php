@@ -12,4 +12,9 @@ class BooksController extends Controller
         $books = Book::all(); // select * from books
         return response()->json($books);
     }
+
+    public function show($id)
+    {
+        return view('books.book')->with('id', $id);
+    }
 }

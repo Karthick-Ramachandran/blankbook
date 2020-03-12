@@ -9,3 +9,6 @@ Route::get('/', function () {
 
 
 Route::get('/books', 'BooksController@index');
+
+
+Route::get('/book/{id}', 'BooksController@show');
