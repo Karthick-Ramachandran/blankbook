@@ -7,14 +7,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// closure
-Route::get('/welcome', 'BooksController@index');
 
-
-Route::get('/welcome/{name}', [
-    'uses' => 'BooksController@greet'
-]);
-
-Route::get('/view/{name}', [
-    'uses' => 'BooksController@view'
-]);
+Route::get('/books', 'BooksController@index');

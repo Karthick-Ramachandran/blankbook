@@ -15,6 +15,10 @@ class CreateBooksTable extends Migration
     {
         Schema::create('books', function (Blueprint $table) {
             $table->id();  //primary key - auto incremnet
+            $table->string('title');
+            $table->string('cover_text');
+            $table->string('image');
+            $table->string('author');
             $table->timestamps();  // created_at and updated_at 
         });
     }
