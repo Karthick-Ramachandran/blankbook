@@ -10,11 +10,16 @@ class BooksController extends Controller
     public function index()
     {
         $books = Book::all(); // select * from books
-        return response()->json($books);
+        return view('books.books')->with('books', $books);
     }
 
     public function show($id)
     {
         return view('books.book')->with('id', $id);
+    }
+
+    public function create()
+    {
+        return view('books.create');
     }
 }
