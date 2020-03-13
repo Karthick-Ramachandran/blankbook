@@ -22,4 +22,14 @@ class BooksController extends Controller
     {
         return view('books.create');
     }
+    public function store(Request $request)
+    {
+        $book = new Book;
+        $book->title = $request->title;
+        $book->cover_text = $request->cover_text;
+        $book->image = $request->image;
+        $book->author = $request->author;
+        $book->save();
+        return redirect('/');
+    }
 }
