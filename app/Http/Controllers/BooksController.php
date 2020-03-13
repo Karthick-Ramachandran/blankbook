@@ -39,4 +39,27 @@ class BooksController extends Controller
         $book->save();
         return redirect('/');
     }
+
+    public function edit($id)
+    {
+        $book = Book::find($id);
+        return view('books.edit')->with('book', $book);
+    }
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'title' => 'required|min:5',
+            'cover_text' => 'required|min:6',
+            'image' => 'required',
+            'author' => 'required'
+        ]);
+
+        $book =  Book::find($id);
+        $book->title = $request->title;
+        $book->cover_text = $request->cover_text;
+        $book->image = $request->image;
+        $book->author = $request->author;
+        $book->save();
+        return redirect('/');
+    }
 }
