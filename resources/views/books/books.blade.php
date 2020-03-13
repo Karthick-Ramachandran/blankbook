@@ -17,7 +17,7 @@
                     <h5 class="card-title">{{ $book->title }}</h5>
                     <p class="card-text">{{ $book->cover_text }}</p>
                     <a href="/book/{{ $book->id }}" class="btn btn-primary">Read more</a>
-                    <a href="" class="btn btn-warning">Edit</a>
+                    <a href="/book/{{ $book->id }}" class="btn btn-warning">Edit</a>
                     <a href="" class="btn btn-danger">Delete</a>
 
                 </div>
