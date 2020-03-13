@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use Session;
 
 class BooksController extends Controller
 {
@@ -24,12 +25,15 @@ class BooksController extends Controller
     }
     public function store(Request $request)
     {
+        $messages = [
+            'required' => 'A beautiful :attribute is required'
+        ];
         $this->validate($request, [
             'title' => 'required|min:5',
             'cover_text' => 'required|min:6',
             'image' => 'required',
             'author' => 'required'
-        ]);
+        ], $messages);
 
         $book = new Book;
         $book->title = $request->title;
@@ -37,6 +41,7 @@ class BooksController extends Controller
         $book->image = $request->image;
         $book->author = $request->author;
         $book->save();
+        Session::flash('success', 'Book created successfully');
         return redirect('/');
     }
 
@@ -60,6 +65,16 @@ class BooksController extends Controller
         $book->image = $request->image;
         $book->author = $request->author;
         $book->save();
+        Session::flash('success', 'Book edited successfully');
+
+        return redirect('/');
+    }
+
+    public function destroy($id)
+    {
+        $book = Book::find($id);
+        $book->delete();
+        Session::flash('success', 'Book deleted successfully');
         return redirect('/');
     }
 }

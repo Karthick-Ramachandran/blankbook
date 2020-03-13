@@ -12,6 +12,7 @@
 <body>
     @include('partials.navbar')
     @include('partials.validation')
+    @include('partials.sessionMessages')
     @yield('content')
 
 </body>
