@@ -18,7 +18,11 @@
                     <p class="card-text">{{ $book->cover_text }}</p>
                     <a href="/book/{{ $book->id }}" class="btn btn-primary">Read more</a>
                     <a href="/book/{{ $book->id }}" class="btn btn-warning">Edit</a>
-                    <a href="" class="btn btn-danger">Delete</a>
+                    <form action="/delete/{{ $book->id }}" method="POST" style="display:inline">
+                        @method('DELETE')
+                        @csrf
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
 
                 </div>
             </div>

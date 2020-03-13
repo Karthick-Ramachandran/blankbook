@@ -8,7 +8,8 @@
         <div class="col-xl-6 col-lg-7 col-xs-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="/book/{{ $book->id }}" method="POST">
+                    <form action="{{ route('editbook', ['id' => $book->id ]) }}" method="POST">
+                        @method('PUT')
                         @csrf
                         <div class="form-group">
                             <label for="">Title</label>
