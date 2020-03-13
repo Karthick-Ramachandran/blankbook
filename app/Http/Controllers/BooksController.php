@@ -31,14 +31,17 @@ class BooksController extends Controller
         $this->validate($request, [
             'title' => 'required|min:5',
             'cover_text' => 'required|min:6',
-            'image' => 'required',
+            'image' => 'required|image',
             'author' => 'required'
         ], $messages);
 
         $book = new Book;
         $book->title = $request->title;
         $book->cover_text = $request->cover_text;
-        $book->image = $request->image;
+        $image = $request->image;
+        $image_new_name = time() . $image->getClientOriginalName();
+        $image->move('books', $image_new_name);
+        $book->image = $image_new_name;
         $book->author = $request->author;
         $book->save();
         Session::flash('success', 'Book created successfully');
@@ -55,14 +58,17 @@ class BooksController extends Controller
         $this->validate($request, [
             'title' => 'required|min:5',
             'cover_text' => 'required|min:6',
-            'image' => 'required',
+            'image' => 'required|image',
             'author' => 'required'
         ]);
 
         $book =  Book::find($id);
         $book->title = $request->title;
         $book->cover_text = $request->cover_text;
-        $book->image = $request->image;
+        $image = $request->image;
+        $image_new_name = time() . $image->getClientOriginalName();
+        $image->move('books', $image_new_name);
+        $book->image = $image_new_name;
         $book->author = $request->author;
         $book->save();
         Session::flash('success', 'Book edited successfully');

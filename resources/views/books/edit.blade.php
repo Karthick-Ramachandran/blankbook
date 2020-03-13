@@ -8,7 +8,7 @@
         <div class="col-xl-6 col-lg-7 col-xs-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('editbook', ['id' => $book->id ]) }}" method="POST">
+                    <form action="{{ route('editbook', ['id' => $book->id ]) }}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="form-group">
@@ -21,7 +21,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Image</label>
-                            <input type="text" value="{{ $book->image }}" name="image" class="form-control">
+                            <input type="file" name="image" class="form-control-file">
                         </div>
                         <div class="form-group">
                             <label for="">Author</label>
