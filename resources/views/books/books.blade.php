@@ -12,7 +12,7 @@
         @foreach($books as $book)
         <div class="col-lg-4 col-md-6 col-xs-12">
             <div class="card mb-3">
-                <img src="{{ $book->image }}" alt="{{ $book->title }}" class="card-img-top">
+                <img src="{{ $book->image }}" height="250px" alt="{{ $book->title }}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">{{ $book->title }}</h5>
                     <p class="card-text">{{ $book->cover_text }}</p>

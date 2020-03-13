@@ -24,6 +24,13 @@ class BooksController extends Controller
     }
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|min:5',
+            'cover_text' => 'required|min:6',
+            'image' => 'required',
+            'author' => 'required'
+        ]);
+
         $book = new Book;
         $book->title = $request->title;
         $book->cover_text = $request->cover_text;

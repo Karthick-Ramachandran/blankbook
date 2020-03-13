@@ -11,6 +11,7 @@
 
 <body>
     @include('partials.navbar')
+    @include('partials.validation')
     @yield('content')
 
 </body>
