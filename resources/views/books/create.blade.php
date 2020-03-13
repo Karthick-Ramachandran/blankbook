@@ -12,19 +12,19 @@
                         @csrf
                         <div class="form-group">
                             <label for="">Title</label>
-                            <input type="text" name="title" class="form-control">
+                            <input type="text" value="{{ old('title') }}" name="title" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Cover Text</label>
-                            <input type="text" name="cover_text" class="form-control">
+                            <input type="text" value="{{ old('cover_text') }}" name="cover_text" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Image</label>
-                            <input type="text" name="image" class="form-control">
+                            <input type="text" value="{{ old('image') }}" name="image" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="">Author</label>
-                            <input type="text" name="author" class="form-control">
+                            <input type="text" value="{{ old('author') }}" name="author" class="form-control">
                         </div>
                         <div class="row justify-content-center">
                             <input type="submit" value="Add" class="btn btn-primary">
