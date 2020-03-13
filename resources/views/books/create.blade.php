@@ -8,7 +8,7 @@
         <div class="col-xl-6 col-lg-7 col-xs-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="/create/book" method="POST">
+                    <form action="/create/book" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="">Title</label>
@@ -20,8 +20,9 @@
                         </div>
                         <div class="form-group">
                             <label for="">Image</label>
-                            <input type="text" value="{{ old('image') }}" name="image" class="form-control">
+                            <input type="file" name="image" class="form-control-file">
                         </div>
+
                         <div class="form-group">
                             <label for="">Author</label>
                             <input type="text" value="{{ old('author') }}" name="author" class="form-control">
