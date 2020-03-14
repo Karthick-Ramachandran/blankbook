@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Book;
 
 class DescriptionController extends Controller
 {
@@ -11,9 +12,10 @@ class DescriptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $book = Book::where('id', $id)->with('description')->first();
+        return response()->json($book);
     }
 
     /**

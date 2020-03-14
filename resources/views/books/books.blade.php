@@ -16,7 +16,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $book->title }}</h5>
                     <p class="card-text">{{ $book->cover_text }}</p>
-                    <a href="/book/{{ $book->id }}" class="btn btn-primary">Read more</a>
+                    <a href="/description/{{ $book->id }}" class="btn btn-primary">Read more</a>
                     <a href="/book/{{ $book->id }}" class="btn btn-warning">Edit</a>
                     <form action="/delete/{{ $book->id }}" method="POST" style="display:inline">
                         @method('DELETE')
