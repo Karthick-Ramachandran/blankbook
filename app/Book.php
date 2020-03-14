@@ -8,4 +8,9 @@ class Book extends Model
 {
     //
     // books
+
+    public function description()
+    {
+        return $this->hasOne('App\Description');
+    }
 }
