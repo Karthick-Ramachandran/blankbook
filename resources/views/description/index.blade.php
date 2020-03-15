@@ -15,6 +15,9 @@
                     <p class="text-center">
                         Cover Text: {{ $book->cover_text }}
                     </p>
+                    <p class="text-center">
+                        Author : {{ $book->author }}
+                    </p>
                     @if($book->description)
                     <p class="card-text text-muted"> {{ $book->description->description }} </p>
                     <a href="/description/edit/{{ $book->description->id }}" class="btn btn-warning">Edit Description</a>
