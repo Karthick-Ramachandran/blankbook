@@ -14,6 +14,12 @@ class BooksController extends Controller
         return view('books.books')->with('books', $books);
     }
 
+    public function new()
+    {
+        $books = Book::orderBy('created_at', 'desc')->get();
+        return view('books.new')->with('books', $books);
+    }
+
     public function show($id)
     {
         return view('books.book')->with('id', $id);

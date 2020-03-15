@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use App\Description;
+use Session;
 
 class DescriptionController extends Controller
 {
@@ -15,7 +17,7 @@ class DescriptionController extends Controller
     public function index($id)
     {
         $book = Book::where('id', $id)->with('description')->first();
-        return response()->json($book);
+        return view('description.index')->with('book', $book);
     }
 
     /**
@@ -34,9 +36,20 @@ class DescriptionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'description' => 'required| min:25'
+        ]);
+        // create -> method available in laravel to create new record
+        Description::create([
+            'book_id' => $id,
+            "description" => $request->description
+        ]);
+        // ->save() // we don't need them
+
+        Session::flash('success', 'Description created successfully');
+        return redirect()->back();
     }
 
     /**
@@ -58,7 +71,8 @@ class DescriptionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $des = Description::find($id);
+        return view('description.edit')->with('des', $des);
     }
 
     /**
@@ -70,7 +84,14 @@ class DescriptionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'description' => 'required| min:25'
+        ]);
+        $des = Description::find($id);
+        $des->description = $request->description;
+        $des->save();
+        Session::flash('success', 'Description edited successfully');
+        return redirect()->back();
     }
 
     /**

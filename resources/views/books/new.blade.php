@@ -4,7 +4,7 @@
 <div class="container mt-4">
     <div class=" mb-3">
         <a href="/create/book" class="btn btn-primary">Add a Book</a>
-        <a href="/new/books" class="btn btn-secondary">New books</a>
+        <a href="/" class="btn btn-secondary">All books</a>
     </div>
 </div>
 <div class="container mt-3">

@@ -10,4 +10,8 @@ class Description extends Model
     {
         return $this->belongsTo('App\Book');
     }
+
+    protected $fillable = [
+        'book_id', 'description'
+    ];
 }
