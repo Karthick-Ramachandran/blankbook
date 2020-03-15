@@ -8,6 +8,9 @@ Route::get('/book/{id}', 'BooksController@show');
 
 Route::get('/create/book', 'BooksController@create');
 
+Route::get('/new/books', 'BooksController@new');
+
+
 Route::post('/create/book', 'BooksController@store');
 
 Route::get('/book/{id}', 'BooksController@edit');
@@ -18,3 +21,10 @@ Route::delete('/delete/{id}', 'BooksController@destroy')->name('deletebook');
 
 
 Route::get('/description/{id}', 'DescriptionController@index');
+
+
+Route::post('/create/description/{id}', 'DescriptionController@store');
+
+Route::get('/description/edit/{id}', 'DescriptionController@edit');
+
+Route::post('/edit/description/{id}', 'DescriptionController@update');
