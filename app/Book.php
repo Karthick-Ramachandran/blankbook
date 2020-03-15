@@ -13,4 +13,8 @@ class Book extends Model
     {
         return $this->hasOne('App\Description');
     }
+
+    protected $fillable = [
+        'title', 'cover_text', 'image', 'author'
+    ];
 }
